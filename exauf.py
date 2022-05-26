@@ -12,13 +12,13 @@ TEMPLATE_PATH = "./source/template.html"
 CONTENT_BLOCK = "{{ content }}"
 TITLE_BLOCK = "{{ title }}"
 STYLE_SOURCE_PATH = "./source/style.css"
-STYLE_BUILD_PATH = "./build/style.css"
+STYLE_BUILD_PATH = "./docs/style.css"
 
 
 def serve():
     class Handler(http.server.SimpleHTTPRequestHandler):
         def __init__(self, *args, **kwargs):
-            super().__init__(*args, directory="./build", **kwargs)
+            super().__init__(*args, directory="./docs", **kwargs)
 
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("serving at port", PORT)
@@ -29,9 +29,9 @@ def build():
     with open(TEMPLATE_PATH) as f:
         TEMPLATE = f.read()
 
-    shutil.rmtree("./build", ignore_errors=True)
-    os.mkdir("./build")
-    os.mkdir("./build/e")
+    shutil.rmtree("./docs", ignore_errors=True)
+    os.mkdir("./docs")
+    os.mkdir("./docs/e")
 
     ex_paths = Path("./source/ex").glob("*.html")
     n_exs = 0
@@ -43,7 +43,7 @@ def build():
         print(header)
         html = TEMPLATE.replace(CONTENT_BLOCK, content)
         html = html.replace(TITLE_BLOCK, uid)
-        with open(f"./build/e/{uid}.html", "w") as f:
+        with open(f"./docs/e/{uid}.html", "w") as f:
             f.write(html)
         n_exs += 1
 

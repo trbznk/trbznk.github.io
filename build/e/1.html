@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main>
+        
+<p>Entwickle eine Klasse <code>Bruch</code>. Enhalten soll die Klasse:</p>
+<p>Attribute</p>
+<ul>
+    <li>zaehler: int</li>
+    <li>nenner: int</li>
+</ul>
+<p>Methoden</p>
+<ul>
+    <li>erweitern</li>
+    <li>kürzen</li>
+</ul>
+
+<pre>
+    <code>
+        >>> b = Bruch(2, 4)
+        >>> b.erweitern(3)
+        >>> b.zaehler, b.nenner
+        (6, 12)
+        >>> b = Bruch(3, 12)
+        >>> b.kuerzen(3)
+        >>> b.zaehler, b.nenner
+        (1, 3)
+    </code>
+</pre>
+
+<p>Erweitere die Klasse um die Methode <code>vereinfachen</code>, die den Bruch so weit runterkürzt wie möglich.</p>
+
+<pre>
+    <code>
+        >>> b = Bruch(50, 40)
+        >>> b.vereinfachen()
+        >>> b.zaehler, b.nenner
+        (5, 4)
+    </code>
+</pre>
+
+    </main>
+  </body>
+</html>

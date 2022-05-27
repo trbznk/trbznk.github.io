@@ -1,0 +1,19 @@
+tags: c++, python, regression, data generation
+
+<p>Baue die folgende Funktion <code>make_regression</code> in C++ in geeigneter Form nach.</p>
+
+<pre>
+    <code>
+def make_regression(n_samples=100, n_features=1, noise_std=5):
+    a = [random.uniform(-100, 100) for _ in range(n_features+1)] # +1 for bias
+    X, Y = [], []
+    for sample_number in range(n_samples):
+        x = [random.gauss(0, 1) for _ in range(n_features)]
+        y = linear_function(x, a)
+        noise = random.gauss(0, noise_std)
+        y += noise
+        X.append(x)
+        Y.append(y)
+    return X, Y
+    </code>
+</pre>

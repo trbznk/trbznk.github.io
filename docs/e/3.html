@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3</title>
+    <link rel="stylesheet" href="/style.css">
+
+    
+  </head>
+  <body>
+    <main>
+        
+<p>Baue die folgende Funktion <code>make_regression</code> in C++ in geeigneter Form nach.</p>
+
+<pre>
+    <code>
+def make_regression(n_samples=100, n_features=1, noise_std=5):
+    a = [random.uniform(-100, 100) for _ in range(n_features+1)] # +1 for bias
+    X, Y = [], []
+    for sample_number in range(n_samples):
+        x = [random.gauss(0, 1) for _ in range(n_features)]
+        y = linear_function(x, a)
+        noise = random.gauss(0, noise_std)
+        y += noise
+        X.append(x)
+        Y.append(y)
+    return X, Y
+    </code>
+</pre>
+
+    </main>
+  </body>
+</html>
